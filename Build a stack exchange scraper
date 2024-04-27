@@ -1,0 +1,8 @@
+import re
+import sys
+if __name__=='__main__':
+    s= sys.stdin.read()
+    pattern = r'question-summary-(\d\d\d\d\d)".*?class="question-hyperlink">(.+?)</a>.*?class=\"relativetime\">(.+?)</span>'
+    ls = re.findall(pattern,s,re.DOTALL)
+    for _ in ls:
+        print(';'.join(_))
