@@ -1,0 +1,13 @@
+import re
+if __name__ == '__main__':
+    n =int(input())
+    n1 = [input() for _ in range(n)]
+    t= int(input())
+    for _ in range(t):
+        t1 = input()
+        regex_pattern = '\\b' + t1 + '\\b'
+        count = 0
+        for i in n1:
+            words = re.findall(regex_pattern,i)
+            count += len(words)
+        print(count)
