@@ -1,0 +1,11 @@
+import re
+regex_pattern = r'^[_.][0-9]+[0\]\.[a-zA-Z]{1,}[\_]*$'
+if __name__ == '__main__':
+    n= int(input())
+    for _ in range(n):
+        s= input()
+        regex_pattern = r'^[_.]\d+[a-z|A-Z]*[_]?$'
+        if re.match(regex_pattern,s):
+            print('VALID')
+        else:
+            print('INVALID')
