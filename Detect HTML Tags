@@ -1,0 +1,12 @@
+import re
+
+if __name__ == '__main__':
+    n = int(input())
+    ls = set()
+    tags = r'<\s*(\w+)'
+    for i in range(n):
+        s = input()
+        found = re.findall(tags, s)
+        for j in found:
+            ls.add(j)
+    print(';'.join(sorted(ls)))
