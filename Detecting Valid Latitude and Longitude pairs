@@ -1,0 +1,10 @@
+import re
+if __name__ == '__main__':
+    n= int(input())
+    regex_pattern = r'^\([+\-]?(((\d|[1-8]\d)(\.\d+)?)|90(\.0+)?), [+\-]?(((\d{1,2}|1[0-7]\d)(\.\d+)?)|180(\.0+)?)\)$'
+    for _ in range(n):
+        s = input()
+        if (re.match(regex_pattern,s)):
+            print('Valid')
+        else:
+            print('Invalid')
