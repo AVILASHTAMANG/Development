@@ -1,0 +1,10 @@
+import re
+import sys
+if __name__ == '__main__':
+    line = sys.stdin.read()
+    if re.search(r'#include<stdio.h>', line):
+        print("C")
+    elif re.search(r'import java.io', line):
+        print("Java")
+    else:
+        print("Python")
