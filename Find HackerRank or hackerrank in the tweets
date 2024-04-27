@@ -1,0 +1,10 @@
+import re
+if __name__ == "__main__":
+    n = int(input())
+    regex_pattern = r'(h|H)(a|A)(c|C)(k|K)(e|E)(r|R)(r|R)(a|A)(n|N)(k|K)'
+    count= 0
+    for _ in range(n):
+        s = input()
+        words = re.findall(regex_pattern,s) 
+        count+=len(words)
+    print(count)
