@@ -1,0 +1,6 @@
+import re
+if __name__ == '__main__':
+    s = " ".join([input() for _ in range(int(input()))]).split()
+    for _ in range(int(input())):
+        i = input()
+        print(s.count(i) + s.count(i.replace("our", “or")))
