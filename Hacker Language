@@ -1,0 +1,4 @@
+import re
+
+if __name__ == '__main__':
+    [print("VALID" if bool(re.findall(r'^\d+\s(C|CPP|JAVA|PYTHON|PERL|PHP|RUBY|CSHARP|HASKELL|CLOJURE|BASH|SCALA|ERLANG|CLISP|LUA|BRAINFUCK|JAVASCRIPT|GO|D|OCAML|R|PASCAL|SBCL|DART|GROOVY|OBJECTIVEC)$', input())) else "INVALID") for _ in range(int(input()))]
