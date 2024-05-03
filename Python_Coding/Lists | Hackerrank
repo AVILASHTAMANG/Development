@@ -1,0 +1,12 @@
+if __name__ == '__main__':
+    N = int(input())
+    arr = []
+    for _ in range(N):
+        op, *num = input().split(" ")
+        num = [int(i) for i in num]
+        if op == 'print':
+            print(arr)
+        else:
+            func = getattr(arr,op)
+            func(*num)
+        
