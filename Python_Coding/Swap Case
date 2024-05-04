@@ -1,0 +1,17 @@
+def swap_case(s):
+    swap = ""
+    for char in s:
+         if char.islower() and char.isalpha():
+             swap += (chr(ord(char) -32))
+         elif char.isupper() and char.isalpha():
+             swap += (chr(ord(char) + 32))
+         else:
+             swap += char
+    return swap
+
+
+
+if __name__ == '__main__':
+    s = input()
+    result = swap_case(s)
+    print(result)
