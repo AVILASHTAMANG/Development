@@ -1,0 +1,15 @@
+###Rangoli Pattern###
+def print_rangoli(size):
+    # your code goes here
+    lowercase_letters = 'abcdefghijklmnopqrstuvwxyz'
+    rangoli_pattern = []
+    for i in range(size-1, -size, -1):
+        line = '-'.join(lowercase_letters[size -1:abs(i):-1] + lowercase_letters[abs(i):size])
+        rangoli_pattern.append((line).center((size*4-3), '-'))
+
+    for line in rangoli_pattern:
+        print(line)
+
+if __name__ == '__main__':
+    n = int(input())
+    print_rangoli(n)
