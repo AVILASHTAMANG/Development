@@ -1,0 +1,16 @@
+def minion_game(string):
+    # your code goes here
+    s_score = 0
+    k_score = 0
+    
+    for index, sub in enumerate(string):
+        if sub in ['A','E','I','O','U']:
+            k_score += len(string) - index
+        else: s_score += len(string) - index
+    if(s_score == k_score) : print('Draw')
+    elif(s_score>k_score): print(f'Stuart {s_score}')
+    else: print(f'Kevin {k_score}')
+
+if __name__ == '__main__':
+    s = input()
+    minion_game(s)
