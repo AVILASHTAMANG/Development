@@ -1,0 +1,10 @@
+def merge_the_tools(string, k):
+    # your code goes here
+    for i in range(0,len(string),k):
+        sub_str = []
+        for j in range(i,i+k):
+            if string[j] not in sub_str: sub_str.append(string[j])
+        print(''.join(sub_str))
+ if __name__ == '__main__':
+    string, k = input(), int(input())
+    merge_the_tools(string, k)
