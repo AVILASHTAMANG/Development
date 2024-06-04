@@ -1,0 +1,9 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+from collections import Counter
+n = int(input())
+words = [input() for _ in range(n)]
+distinct_words = Counter(words)
+print(len(distinct_words))
+dict_words = Counter(words)
+for s, count in dict_words.items():
+    print(count, end =' ')
