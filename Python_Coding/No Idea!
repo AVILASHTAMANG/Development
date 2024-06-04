@@ -1,0 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+n,m = list(map(int,input().split()))
+array = list(map(int,input().split(" ")))
+A = list(map(int,input().split()))
+B = list(map(int,input().split()))
+dict_A = {}
+dict_B = {}
+happiness = 0
+for i in range(m):
+    dict_A[str(A[i])]= "exists"
+    dict_B[str(B[i])]= "exists"
+for i in array:
+    if(dict_A.get(str(i))): happiness+=1
+    elif(dict_B.get(str(i))):happiness-=1
+print(happiness)
