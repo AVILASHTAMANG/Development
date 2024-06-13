@@ -1,0 +1,19 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
+for i in range(int(input())):
+    length = int(input())
+    size = [int(x) for x in input().split()]
+    size1 = size.copy()
+    size1.sort()
+    x = 0
+    y = length - 1
+    flag = True
+    for j in range(length):
+        z = size1.pop()
+        if z == size[x]:
+            x += 1
+        elif z == size[y]:
+            y -= 1
+        else:
+            flag = False
+            break  
+    print('Yes' if flag else 'No')
