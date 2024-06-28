@@ -1,0 +1,5 @@
+def iterations():
+  from itertools import combinations
+  n, s, k = int(input()), input().split(), int(input())
+  combs = list(combinations(s, k))
+  print (len([b for b in combs if 'a' in b])/len(combs))
