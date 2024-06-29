@@ -1,0 +1,13 @@
+def sort_func(i):
+    if i.islower():
+        return 'a' + i
+    elif i.isupper():
+        return 'b' + i
+    elif i.isnumeric() and int(i)%2:
+        return 'c' + i
+    else:
+        return 'd' + i
+
+if __name__=='__main__':
+    result = sorted(input(),key=sort_func)
+    print(''.join(result))
