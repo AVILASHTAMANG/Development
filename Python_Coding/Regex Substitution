@@ -1,0 +1,7 @@
+import re
+
+if __name__ == "__main__":
+    for _ in range(int(input())):
+        #first_OR = re.sub(r"(?<=[ ])\|\|(?=[ ])","or",input())
+        first_OR = re.sub(r'(?<=[ ])\|\|(?=[ ])', 'or', input())
+        print(re.sub(r'(?<=[ ])&&(?=[ ])', 'and', first_OR))
