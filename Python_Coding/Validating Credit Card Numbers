@@ -1,0 +1,10 @@
+import re
+if __name__=="__main__":
+    n= int(input())
+    pattern = r"^(?=[456])(?!.*(.)-?\1-?\1-?\1)(\d{4}-?){3}\d{4}$"
+    for _ in range(n):
+        if re.match(pattern,input()):
+            print("Valid")
+        else:
+            print("Invalid")
+        
