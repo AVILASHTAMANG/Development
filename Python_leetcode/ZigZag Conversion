@@ -1,0 +1,14 @@
+from collections import defaultdict
+class Solution:
+    def convert(self, s: str, numRows: int) -> str:
+        if numRows == 1:
+            return s
+        m = defaultdict(str)
+        d = 1 #direction of traversal
+        r = 1 #current row
+        for i in s:
+            m[r]+=i
+            r += d
+            if r==numRows or r==1:
+                d*=-1
+        return "".join(m.values())
