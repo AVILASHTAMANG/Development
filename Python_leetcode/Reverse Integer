@@ -1,15 +1,11 @@
 class Solution:
     def reverse(self, x: int) -> int:
-        x = str(x)
-        if x[0] == '-':
-            op = int('-'+x[-1:0:-1])
-            if op >= -2147483648 and op <= 2147483647:
-                return op
-            else:
-                return 0
+        if x < 0:
+            reversed_x = int('-' + str(x)[:0:-1])
         else:
-            op = int(x[::-1])
-        if op >= -2147483648 and op <= 2147483647:
-            return op
+            reversed_x = int(str(x)[::-1])
+
+        if -2147483648 <= reversed_x <= 2147483647:
+            return reversed_x
         else:
-            return 0 
+            return 0
