@@ -1,0 +1,21 @@
+class Solution:
+    def generateParenthesis(self, n: int) -> List[str]:
+        current_string = []
+        valid_string = []
+        def combination(open,close):
+            nonlocal valid_string
+            nonlocal current_string
+            if (open==0 and close==0):
+                valid_string.append(''.join(current_string))
+                return
+            if (open>0):
+                current_string.append('(')
+                combination(open-1,close)
+                current_string.pop()
+            if (close>open):
+                current_string.append(')')
+                combination(open,close-1)
+                current_string.pop()
+        combination(n,n)
+        return valid_string
+        
