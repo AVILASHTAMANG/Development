@@ -1,0 +1,23 @@
+class Solution:
+    def nextPermutation(self, nums: List[int]) -> None:
+        """
+        Do not return anything, modify nums in-place instead.
+        """
+        breakpoint = -1
+        for i in range(len(nums)-1,0,-1):
+            if nums[i] > nums[i-1]:
+                breakpoint = i - 1
+                break
+        
+        if breakpoint == -1:
+            nums.reverse()
+            return
+        
+        small_index = -1
+        for i in range(len(nums)-1, breakpoint, -1 ):
+            if nums[i]>nums[breakpoint]:
+                small_index = i
+                break
+        nums[breakpoint],nums[small_index]  = nums[small_index], nums[breakpoint]
+        nums[breakpoint + 1:] = list(reversed(nums[breakpoint + 1:]))
+        return nums
