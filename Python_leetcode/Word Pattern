@@ -1,0 +1,13 @@
+class Solution:
+    def wordPattern(self, pattern: str, s: str) -> bool:
+        words = s.split()
+        if len(pattern) != len(words):
+            return False
+        patt_words_map ={}
+        words_patt_map = {}
+        for char, word in zip(pattern,words):
+            if (char in patt_words_map and patt_words_map[char] != word) or (word in words_patt_map and words_patt_map[word] != char):
+                return False
+            patt_words_map[char] = word
+            words_patt_map[word] = char
+        return True
