@@ -1,0 +1,16 @@
+def isplaindrome(word):
+    word=word.lower()
+    return word==word[::-1]
+def sentence_palindrome(sentence):
+    words = sentence.split()
+    for word in words:
+        if isplaindrome(word):
+            return True
+    return False
+
+if __name__ == '__main__':
+    sentence = "The radar is working correctly"
+    if sentence_palindrome(sentence):
+        print("yes, sentence has palindrome atleast one word")
+    else:
+        print("NO")
