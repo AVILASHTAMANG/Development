@@ -1,0 +1,16 @@
+def custom_split(string, delimiter=' '):
+    result = []
+    word = ''
+    
+    for char in string:
+        if char == delimiter:
+            if word != '':
+                result.append(word)
+                word = ''
+        else:
+            word += char
+            
+    if word:  # Append last word if exists
+        result.append(word)
+        
+    return result
