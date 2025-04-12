@@ -1,0 +1,22 @@
+import re
+
+def custom_split(s, sep=None, maxsplit=-1):
+    if sep is None:
+        # Default: split on any whitespace (like str.split())
+        pattern = r'\s+'
+        return re.split(pattern, s.strip(), maxsplit)
+    elif sep == '':
+        raise ValueError("empty separator")
+    else:
+        result = []
+        start = 0
+        count = 0
+        while True:
+            index = s.find(sep, start)
+            if index == -1 or (0 <= maxsplit == count):
+                result.append(s[start:])
+                break
+            result.append(s[start:index])
+            start = index + len(sep)
+            count += 1
+        return result
