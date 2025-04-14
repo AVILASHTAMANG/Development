@@ -1,1 +1,1 @@
-Welcome to my coding solutions using Python.
+Welcome to my solutions using Python.
