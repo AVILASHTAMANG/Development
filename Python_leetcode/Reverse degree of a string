@@ -1,0 +1,13 @@
+class Solution:
+    def reverseDegree(self, s: str) -> int:
+        s = s.lower()
+        return sum((i+1)*(27-(ord(c) - 96)) for i,c in enumerate(s) if 'a' <= c <= 'z')
+        
+        # val = 0
+#         s = s.lower()
+#         for i in range(len(s)):
+#             if 'a' <= s[i] <= 'z':
+#                 degree = ord(s[i]) - ord('a') + 1
+#                 reverse_degree  = 27 -degree
+#                 val += (i+1) * reverse_degree
+#         return val
