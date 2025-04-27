@@ -1,0 +1,4 @@
+class Solution:
+    def judgeCircle(self, moves: str) -> bool:
+        freq= Counter(moves)
+        return freq.get("U",0)==freq.get("D",0) and freq.get("L",0)==freq.get("R",0)
