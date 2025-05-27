@@ -1,0 +1,25 @@
+#import re
+class Solution:
+    def mostCommonWord(self, paragraph: str, banned: List[str]) -> str:
+        #words = re.split(r'\W+', paragraph.lower())
+        paragraph = paragraph.lower()
+        
+        # Replace punctuation with space
+        clean_paragraph = ''
+        for ch in paragraph:
+            if ch.isalnum() or ch == ' ':
+                clean_paragraph += ch
+            else:
+                clean_paragraph += ' '
+        
+        # Split into words
+        words = clean_paragraph.split()
+
+        # Create frequency dictionary
+        freq = {}
+        for word in words:
+            if word not in banned:
+                freq[word] = freq.get(word, 0) + 1
+
+        # Find the most common non-banned word
+        return max(freq, key=freq.get)        
