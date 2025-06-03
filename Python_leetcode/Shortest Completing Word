@@ -1,0 +1,12 @@
+from collections import Counter
+class Solution:
+    def shortestCompletingWord(self, licensePlate: str, words: List[str]) -> str:
+        lower_license = [char.lower() for char in licensePlate if char.isalpha()]
+        required_counts = Counter(lower_license)
+        result = None
+        for word in words:
+            word_counts = Counter(word.lower())
+            if all(word_counts[char] >= required_counts[char] for char in required_counts):
+                if result is None or len(word) < len(result):
+                    result = word
+        return result
