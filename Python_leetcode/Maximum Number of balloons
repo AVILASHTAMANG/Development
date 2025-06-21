@@ -1,0 +1,11 @@
+class Solution:
+    def maxNumberOfBalloons(self, text: str) -> int:
+        # s = "loonbalxballpoon"
+        # freq = {c: sum(1 for ch in s if ch == c) for c in set(s)}
+        # freq = {char: text.count(char) for char in text}
+        counts = [0] * 26
+        for ch in text:
+            counts[ord(ch)-ord('a')]+= 1
+        counts[ord('l')-ord('a')]//=2
+        counts[ord('o')-ord('a')]//=2
+        return min(counts[ord(c)-ord('a')] for c in 'balon')
