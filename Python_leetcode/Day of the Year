@@ -1,0 +1,22 @@
+class Solution:
+    # def dayOfYear(self, date: str) -> int:
+    #     def leapYear(y):
+    #         return (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0)
+    #     mDays = [31,28,31,30,31,30,31,31,30,31,30,31]
+    #     y,m,d = map(int, date.split('-'))
+    #     days = 0
+    #     for month in range(1, m):
+    #         days += mDays[month-1] +(1 if (month==2 and leapYear(y)) else 0)
+    #     days += d
+    #     return days
+
+
+    def dayOfYear(self, date: str) -> int:
+        y, m, d = map(int, date.split('-'))
+        mDays = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+        
+        # Add one day to February if it's a leap year
+        if (y % 4 == 0 and y % 100 != 0) or (y % 400 == 0):
+            mDays[1] += 1
+        
+        return sum(mDays[:m - 1]) + d
