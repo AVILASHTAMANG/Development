@@ -1,0 +1,13 @@
+class Solution:
+    def modifyString(self, s: str) -> str:
+        s = list(s)
+        for i in range(len(s)):
+            if(s[i]=='?'):
+                for c in "abcdefghijklmnopqrstuvwxyz":
+                    prev_char = s[i-1] if i>0 else ''
+                    next_char = s[i+1] if i<(len(s)-1) else ''
+                    if c!=prev_char and c!=next_char:
+                        s[i]=c
+                        break
+        return ''.join(s)
+        
