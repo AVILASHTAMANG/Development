@@ -1,0 +1,22 @@
+import re
+class Solution:
+    def secondHighest(self, s: str) -> int:
+        digits = re.findall(r"\d", s)
+        unique_digits = sorted(set(int(d) for d in digits), reverse=True)
+        if unique_digits == None or len(unique_digits)<2:
+            return -1
+        else:
+            return unique_digits[1]
+# class Solution:
+#     def secondHighest(self, s: str) -> int:
+#         digits = set()
+
+#         for ch in s:
+#             if ch.isdigit():
+#                 digits.add(int(ch))
+
+#         sorted_digits = sorted(digits, reverse=True)
+
+#         if len(sorted_digits) < 2:
+#             return -1
+#         return sorted_digits[1]
