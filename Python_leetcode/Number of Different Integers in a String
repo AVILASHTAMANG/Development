@@ -1,0 +1,8 @@
+class Solution:
+    def numDifferentIntegers(self, word: str) -> int:
+        new_word = ''.join(ch if ch.isdigit() else ' ' for ch in word)
+        nums = new_word.split()
+        n = set()
+        for num in nums:
+            n.add(str(int(num)))  # Convert to int to remove leading zeros, then back to str
+        return len(n)
