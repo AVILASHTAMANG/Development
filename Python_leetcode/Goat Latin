@@ -1,0 +1,13 @@
+class Solution:
+    def toGoatLatin(self, sentence: str) -> str:
+        vowels ={'a', 'e', 'i', 'o', 'u'}
+        words = sentence.split()
+        res = []
+        for index, word in enumerate(words, 1):
+            if word[0].lower() in vowels:
+                w = word + "ma"
+            else:
+                w = word[1:] + word[0] + "ma"
+            w += "a" * index
+            res.append(w)
+        return " ".join(res)    
