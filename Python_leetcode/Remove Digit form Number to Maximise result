@@ -1,0 +1,10 @@
+class Solution:
+    def removeDigit(self, number: str, digit: str) -> str:
+        max_res =""
+        for i in range(len(number)):
+            if number[i] == digit:
+                comp = number[:i] + number[i+1:]
+                if comp > max_res:
+                    max_res = comp
+        return max_res
+        
