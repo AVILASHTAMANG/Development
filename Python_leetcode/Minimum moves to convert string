@@ -1,0 +1,15 @@
+class Solution:
+    def minimumMoves(self, s: str) -> int:
+        s = list(s)
+        i = 0
+        count = 0
+        for i in range(len(s)):
+            if s[i] == 'X':
+                for j in range(i, min(i+3,len(s))):
+                    s[j] = '0'
+                count += 1
+                i+=3
+            else:
+                i += 1
+        return count
+        
