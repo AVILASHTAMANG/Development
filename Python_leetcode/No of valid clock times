@@ -1,0 +1,14 @@
+class Solution:
+    def countTime(self, time: str) -> int:
+        count = 0
+        for h in range(24):
+            for m in range(60):
+                candidate = f"{h:02}:{m:02}"
+                match = True
+                for i in range(5):
+                    if time[i] != '?' and time[i] != candidate[i]:
+                        match = False
+                        break
+                if match:
+                    count += 1
+        return count
