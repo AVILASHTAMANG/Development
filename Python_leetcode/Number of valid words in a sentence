@@ -1,0 +1,29 @@
+class Solution:
+    def countValidWords(self, sentence: str) -> int:
+        tokens = sentence.strip().split()
+        valid_count = 0
+        for token in tokens:
+            # It only contains lowercase letters, hyphens, and/or punctuation (no digits).
+            if any(char.isdigit() for char in token):
+                continue
+            # There is at most one hyphen '-'. If present, it must be surrounded by lowercase characters ("a-b" is valid, but "-ab" and "ab-" are not valid).
+            if token.count('-')>1:
+                continue
+            if '-' in token:
+                hyphen_index = token.index('-')
+                if hyphen_index == 0 or hyphen_index == len(token)-1:
+                    continue
+                if not (token[hyphen_index - 1].islower() and token[hyphen_index + 1].islower()) :
+                    continue
+            # There is at most one punctuation mark. If present, it must be at the end of the token ("ab,", "cd!", and "." are valid, but "a!b" and "c.," are not valid).
+            punctuations = set("!.,")
+            punctuations_count = sum(1 for c in token if c in punctuations)
+            if punctuations_count>1:
+                continue
+            if punctuations_count == 1 and token[-1] not in punctuations:
+                continue
+            if punctuations_count == 1:
+                if any(c in punctuations for c in token[:-1]):
+                    continue
+            valid_count += 1
+        return valid_count    
