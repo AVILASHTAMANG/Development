@@ -1,0 +1,14 @@
+class Solution:
+    def closestTarget(self, words: List[str], target: str, startIndex: int) -> int:
+        if target not in words:
+            return -1
+        n = len(words)    
+        min_distance = float('inf')
+        for i, word in enumerate(words):
+            if word == target:
+                forward = (i - startIndex) % n
+                backward = (startIndex - i) % n
+                min_distance = min(min_distance, forward, backward)
+        return min_distance
+        
+        
