@@ -1,0 +1,16 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        # Using Set :
+        # seen = set()
+        # for num in nums:
+        #     if num in seen:
+        #         return True
+        #     seen.add(num)
+        # return False
+        #using Dictionary
+        freq={}
+        for num in nums:
+            if num in freq:
+                return True
+            freq[num] = 1
+        return False
