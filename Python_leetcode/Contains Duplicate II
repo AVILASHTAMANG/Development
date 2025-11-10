@@ -1,0 +1,16 @@
+class Solution:
+    def containsNearbyDuplicate(self, nums: List[int], k: int) -> bool:
+        # O(n2)
+        # for i in range(len(nums) - 1):
+        #     for j in range(i+1, len(nums)):
+        #         if nums[j] == nums[i] and abs(i-j)<=k:
+        #             return True
+        # return False        
+
+        #Hash map O(n)
+        seen = {}
+        for i , num in enumerate(nums):
+            if num in seen and i-seen[num]<=k:
+                return True
+            seen[num]=i
+        return False
