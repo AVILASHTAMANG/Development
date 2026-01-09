@@ -1,0 +1,18 @@
+class Solution:
+    def intersect(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        # freq = {}
+        # for num in nums1:
+        #     freq[num] = freq.get(num,0) + 1
+        # result = []
+        # for num in nums2:
+        #     if freq.get(num,0) > 0:
+        #         result.append(num)
+        #         freq[num] -= 1
+        # return result
+
+        c1 = Counter(nums1)
+        c2 = Counter(nums2)
+        result= []
+        for num in c1:
+            result.extend([num] * min(c1[num], c2.get(num,0)))
+        return result
