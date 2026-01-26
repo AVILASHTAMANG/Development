@@ -1,0 +1,12 @@
+class Solution:
+    def maxPower(self, s: str) -> int:
+        maxpower  = 1
+        counter = 1
+        for i in range(1,len(s)):
+            if s[i] == s[i-1]:
+                counter += 1
+                maxpower = max(maxpower, counter)
+            else:
+                counter = 1
+        return maxpower           
+        
