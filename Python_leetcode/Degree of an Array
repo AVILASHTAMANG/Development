@@ -1,0 +1,35 @@
+# Given a non-empty array of non-negative integers nums, the degree of this array is defined as the maximum frequency of any one of its elements.
+# Your task is to find the smallest possible length of a (contiguous) subarray of nums, that has the same degree as nums.
+
+class Solution:
+    def findShortestSubArray(self, nums: List[int]) -> int:
+        freq = {}
+        first = {}
+        last = {}
+        for i, num in enumerate(nums):
+            if num not in freq:
+                freq[num]=1
+                first[num]=i
+            else:
+                freq[num]+=1
+            last[num] = i
+        degree = max(freq.values())
+        min_length= len(nums)
+        for num in freq:
+            if freq[num]==degree:
+                length = last[num] - first[num] + 1
+                if length < min_length:
+                    min_length = length
+        return min_length
+        #to print subarray:
+        # result=[]
+        # for num in freq:
+        #     if freq[num]==degree:
+        #         length = last[num] - first[num] + 1
+        #         subarray = nums[first[num]:last[num]+1]
+        #         if length < min_length:
+        #             min_length = length
+        #             result  = subarray # start new list
+        #         elif length == min_length:
+        #             resutl.append(subarray) # add to list
+        # return result
