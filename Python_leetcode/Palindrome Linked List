@@ -14,3 +14,39 @@ class Solution:
                 l.append(curr.val)
                 curr=curr.next
         return l[::-1]==l        
+
+# Could you do it in O(n) time and O(1) space?
+# Definition for singly-linked list.
+# class ListNode:
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+
+# class Solution:
+#     def isPalindrome(self, head: Optional[ListNode]) -> bool:
+#         slow = fast = head
+        
+#         # Step 1: Find middle
+#         while fast and fast.next:
+#             slow = slow.next
+#             fast = fast.next.next
+        
+#         # Step 2: Reverse second half
+#         prev = None
+#         while slow:
+#             temp = slow.next
+#             slow.next = prev
+#             prev = slow
+#             slow = temp
+        
+#         # Step 3: Compare halves
+#         left = head
+#         right = prev
+        
+#         while right:
+#             if left.val != right.val:
+#                 return False
+#             left = left.next
+#             right = right.next
+        
+#         return True
