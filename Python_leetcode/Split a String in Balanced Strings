@@ -1,0 +1,16 @@
+# Balanced strings are those that have an equal quantity of 'L' and 'R' characters.
+# Given a balanced string s, split it into some number of substrings such that:
+# Each substring is balanced.
+# Return the maximum number of balanced strings you can obtain.
+
+class Solution:
+    def balancedStringSplit(self, s: str) -> int:
+        balance, count =0,0
+        for i in s:
+            if i=='L':
+                balance+=1
+            else:
+                balance-=1
+            if balance == 0:
+                count +=1
+        return count        
