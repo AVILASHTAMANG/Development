@@ -1,0 +1,18 @@
+# Given a list of non-negative integers nums, arrange them such that they form the largest number and return it.
+# Since the result may be very large, so you need to return a string instead of an integer.
+
+class Solution:
+    def largestNumber(self, nums: List[int]) -> str:
+        nums = [str(num) for num in nums]
+        n = len(nums)
+        # bubble sort
+        for i in range(n):
+            for j in range(0, n-i-1):
+                if nums[j] + nums[j+1] < nums[j+1] + nums[j]:
+                    nums[j],nums[j+1] = nums[j+1],nums[j]
+        result = ""
+        for num in nums:
+            result += num
+        if result[0]=="0":
+            return "0"
+        return result
