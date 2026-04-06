@@ -1,0 +1,45 @@
+# You are given an integer array deck where deck[i] represents the number written on the ith card.
+# Partition the cards into one or more groups such that:
+    # Each group has exactly x cards where x > 1, and
+    # All the cards in one group have the same integer written on them.
+# Return true if such partition is possible, or false otherwise.
+
+class Solution:
+    def hasGroupsSizeX(self, deck: List[int]) -> bool:
+        count = {}
+        for card in deck:
+            if card in count:
+                count[card]+=1
+            else:
+                count[card]=1
+        min_count = min(count.values())
+        #each group size
+        for x in range(2,min_count+1):
+            valid = True
+            for c in count.values():
+                if c%x!=0:
+                    valid=False
+                    break
+            if valid:
+                return True
+        return False
+
+        #returning groups
+        #group_size=-1
+        # for x in range(2,min_count+1):
+        #     valid = True
+        #     for c in count.values():
+        #         if c%x!=0:
+        #             valid=False
+        #             break
+        #     if valid:
+        #         group_size=x
+        # if group_size==-1:
+        #     return []
+        #build groups
+        # groups = []
+        # for num, freq in count.items():
+        #     num_groups=freq//group_size
+        #     for _ in range(num_groups):
+        #         groups.append([num]*group_size)
+        # return groups
