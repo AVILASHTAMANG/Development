@@ -7,6 +7,14 @@ class Solution:
         #         return True
         #     seen.add(num)
         # return False
+
+        # freq={}
+        # for num in nums:
+        #     freq[num] = freq.get(num,0) + 1
+        #     if freq[num] >1 :
+        #         return True
+        # return False
+
         #using Dictionary
         freq={}
         for num in nums:
