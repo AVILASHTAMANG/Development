@@ -5,6 +5,7 @@
 # Return true if the Sudoku board is valid, otherwise return false
 # Note: A board does not need to be full or be solvable to be valid.
 
+from typing import List
 class Solution:
     def isValidSudoku(self, board: List[List[str]]) -> bool:
         ####using set#####
@@ -41,3 +42,16 @@ class Solution:
                 seen[col_key]=True
                 seen[box_key]=True
         return True
+
+if __name__ == '__main__':
+    board = [["1", "2", ".", ".", "3", ".", ".", ".", "."],
+     ["4", ".", ".", "5", ".", ".", ".", ".", "."],
+     [".", "9", "8", ".", ".", ".", ".", ".", "3"],
+     ["5", ".", ".", ".", "6", ".", ".", ".", "4"],
+     [".", ".", ".", "8", ".", "3", ".", ".", "5"],
+     ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+     [".", ".", ".", ".", ".", ".", "2", ".", "."],
+     [".", ".", ".", "4", "1", "9", ".", ".", "8"],
+     [".", ".", ".", ".", "8", ".", ".", "7", "9"]]
+    obj = Solution()
+    print(obj.isValidSudoku(board))
