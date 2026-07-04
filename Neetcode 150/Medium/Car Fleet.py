@@ -11,16 +11,17 @@
 from typing import List
 class Solution:
     def carFleet(self, target: int, position: List[int], speed: List[int]) -> int:
+        cars = sorted(zip(position,speed),reverse=True)
         fleet, max_time = 0, 0
-        for i in range(len(position)):
-            time = (target - position[i])/speed[i]
+        for pos, spd in cars:
+            time = (target - pos)/spd
             if time > max_time:
                 fleet += 1
                 max_time = time
         return fleet
 
 if __name__ == '__main__':
-    target = 10
-    position = [4,1,0,7]
-    speed = [2,2,1,1]
+    target = 12
+    position = [10,8,0,5,3]
+    speed = [2,4,1,1,3]
     print(Solution().carFleet(target,position,speed))
