@@ -2,7 +2,8 @@
 # You may decide your bananas-per-hour eating rate of k. Each hour, you may choose a pile of bananas and eats k bananas from that pile. If the pile has less than k bananas, you may finish eating the pile but you can not eat from another pile in the same hour.
 # Return the minimum integer k such that you can eat all the bananas within h hours.
 
-class Solution:https://avatars.githubusercontent.com/u/51532726?v=4&size=64
+from typing import List
+class Solution:
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
         low, high = 1, max(piles)
         while low<high:
@@ -15,3 +16,8 @@ class Solution:https://avatars.githubusercontent.com/u/51532726?v=4&size=64
             else:
                 low=mid+1
         return low
+
+if __name__ == '__main__':
+    matrix = [1,11,4,3]
+    target = 10
+    print(Solution().minEatingSpeed(matrix, target))
