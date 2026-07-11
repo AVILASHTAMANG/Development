@@ -32,16 +32,8 @@ class TimeMap:
         return ans
 
 if __name__=='__main__':
-    operations = ["TimeMap", "set", "get", "get", "set", "get"]
-
-    arguments = [
-        [],
-        ["alice", "happy", 1],
-        ["alice", 1],
-        ["alice", 2],
-        ["alice", "sad", 3],
-        ["alice", 3]
-    ]
+    # ["TimeMap", "set", ["alice", "happy", 1], "get", ["alice", 1], "get", ["alice", 2], "set", ["alice", "sad", 3],
+    #  "get", ["alice", 3]]
     tm = TimeMap()
 
     print(tm.set("alice", "happy", 1))  # None
