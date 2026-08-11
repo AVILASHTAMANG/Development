@@ -1,6 +1,7 @@
 #Given a 2-D grid of characters board and a string word, return true if the word is present in the grid, otherwise return false.
-
 #For the word to be present it must be possible to form it with a path in the board with horizontally or vertically neighboring cells. The same cell may not be used more than once in a word.
+
+from typing import List
 class Solution:
     def exist(self, board: List[List[str]], word: str) -> bool:
         m = len(board)
@@ -18,3 +19,12 @@ class Solution:
             board[i][j]=temp
             return isexist
         return any(dfs(i,j,0) for i in range(m) for j in range(n))
+
+if __name__ == '__main__':
+    board = [
+        ["A", "B", "C", "D"],
+        ["S", "A", "A", "T"],
+        ["A", "C", "A", "E"]
+    ]
+    word = "CAT"
+    print(Solution().exist(board,word))

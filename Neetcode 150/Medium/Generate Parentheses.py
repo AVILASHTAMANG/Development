@@ -1,5 +1,6 @@
 # You are given an integer n. Return all well-formed parentheses strings that you can generate with n pairs of parentheses.
 
+from typing import List
 class Solution:
     def generateParenthesis(self, n: int) -> List[str]:
         ans=[]
@@ -18,3 +19,6 @@ class Solution:
         backtrack([],0,0)
         return ans
         
+if __name__ == '__main__':
+    n = 3
+    print(Solution().generateParenthesis(n))
