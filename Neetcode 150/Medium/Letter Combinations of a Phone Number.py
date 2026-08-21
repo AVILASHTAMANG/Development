@@ -3,6 +3,7 @@
 # A digit could represent any one of the characters it maps to.
 # Return all possible letter combinations that digits could represent. You may return the answer in any order.
 
+from typing import List
 class Solution:
     def letterCombinations(self, digits: str) -> List[str]:
         if not digits:
