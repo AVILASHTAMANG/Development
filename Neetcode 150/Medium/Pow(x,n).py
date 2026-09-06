@@ -5,6 +5,21 @@
 
 class Solution:
     def myPow(self, x: float, n: int) -> float:
+        # using recursion
+        # if x == 0:
+        #     return 0
+        # if n == 0:
+        #     return 1.0
+        # original_n = n
+        # n = abs(n)
+        # res = self.myPow(x,n//2)
+        # res = res*res
+        # if n%2==1:
+        #     res *= x
+        # if original_n<0:
+        #     return 1/res
+        # else:
+        #     return res
         if n<0:
             x=1/x
             n = -n
@@ -15,6 +30,7 @@ class Solution:
             x*=x
             n//=2
         return res
+
 
 if __name__ == '__main__':
     x= 2.00000
