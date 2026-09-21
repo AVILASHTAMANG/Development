@@ -30,7 +30,6 @@ if __name__ == '__main__':
     list1 = ListNode(1, ListNode(2,ListNode(4)))
     list2 = ListNode(1,ListNode(3,ListNode(5)))
     merged = Solution().mergeTwoLists(list1, list2)
-    #curr = merged_head
     res = []
     while merged:
         res.append(merged.val)
