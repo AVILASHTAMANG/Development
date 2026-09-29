@@ -1,19 +1,10 @@
+# Given an array of strings strs, group all anagrams together into sublists. You may return the output in any order.
+#
+# An anagram is a string that contains the exact same characters as another string, but the order of the characters
+# can be different.
+
 class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
-        # Complexity :
-        # Let:
-        # n = number of strings
-        # k = maximum string length
-        # Sorting each string costs O(k log k), so:
-        # Time: O(n * k log k)
-        # Space: O(n * k)
-
-        # group_anagrams = defaultdict(list)
-        # for s in strs:
-        #     sorted_str = ''.join(sorted(s))
-        #     group_anagrams[sorted_str].append(s)
-        # return list(group_anagrams.values())
-
         # For optimal performance, a common alternative is to use a 26-character frequency count as the key, giving O(n * k) time.
         groups = defaultdict(list)
         for s in strs:
