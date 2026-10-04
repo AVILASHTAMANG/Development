@@ -1,14 +1,16 @@
+import re
 
+class Solution:
+    def ipAddressValidation(self, ipaddress):
+        ipv4 = r'^((25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+        ipv6 = r'^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$'
+        if re.match(ipv4, ipaddress):
+            return ('IPv4')
+        elif re.match(ipv6, ipaddress):
+            return ('IPv6')
+        else:
+            return ('Neither')
 
 if __name__ == '__main__':
-    n = int(input())
-    IPv4_pattern = r'^((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.){3}(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])$'
-    for _ in range(n):
-        s = input()
-        if re.match(IPv4_pattern, s):
-            print('IPv4')
-        elif re.match(r'^([0-9a-f]{1,4}:){7}[0-9a-f]{1,4}$', s):
-            print('IPv6')
-        else:
-            print('Neither')
-
+    ipaddress = "10.110.129.126"
+    print(Solution().ipAddressValidation(ipaddress))
