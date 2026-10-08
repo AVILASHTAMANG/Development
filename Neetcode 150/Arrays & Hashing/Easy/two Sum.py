@@ -11,4 +11,9 @@ class Solution:
             complement = target - num
             if complement in num_arr:
                 return [num_arr[complement],i]
-            num_arr[num] = i 
+            num_arr[num] = i
+
+if __name__ == '__main__':
+    nums = [3, 4, 5, 6]
+    target = 7
+    print(Solution().twoSum(nums,target))

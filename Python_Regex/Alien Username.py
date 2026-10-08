@@ -16,13 +16,21 @@
 # valid alien username. If a username is a valid alien username, print VALID on a new line; otherwise, print INVALID.
 
 import re
-regex_pattern = r'^[_.][0-9]+[0\]\.[a-zA-Z]{1,}[\_]*$'
-if __name__ == '__main__':
-    n= int(input())
-    for _ in range(n):
-        s= input()
-        regex_pattern = r'^[_.]\d+[a-z|A-Z]*[_]?$'
-        if re.match(regex_pattern,s):
-            print('VALID')
+class Solution:
+    def validate_username(self, s):
+        regex_pattern = r'^[_.][0-9]+[a-zA-Z]*_?$'
+        if re.match(regex_pattern, s):
+            return "VALID"
         else:
-            print('INVALID')
+            return "INVALID"
+
+if __name__ == '__main__':
+    usernames = [
+        '_123',
+        '.456ABC',
+        '_123abc_',
+        '_abc',
+        '.123_abc'
+    ]
+    for username in usernames:
+        print(Solution().validate_username(username))
