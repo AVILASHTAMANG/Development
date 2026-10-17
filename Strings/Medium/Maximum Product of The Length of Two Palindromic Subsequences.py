@@ -44,7 +44,7 @@ class Solution:
         self.max_prod = 0
         s1 = []
         s2 = []
-        
+
 
         def is_palindrome(chars: list[str]) -> bool:
             l, r = 0, len(chars) - 1
