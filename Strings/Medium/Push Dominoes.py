@@ -35,8 +35,6 @@ class Solution:
             i = j
         return ''.join(result)[1:]
 
-
-
 if __name__=='__main__':
     dominoes = ".L.R...LR..L.." # "LL.RR.LLRRLL.."
     print(Solution().pushDominoes(dominoes))
