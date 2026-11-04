@@ -9,8 +9,29 @@
 
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
+        def can_ship(cap):
+            load = 0
+            day = 1
+            for w in weights:
+                if load+w > cap:
+                    load=w
+                    day+=1
+                else:
+                    load+=w
+            return day<=days
+        lo, hi = max(weights), sum(weights)
+        while lo<hi:
+            mid = (lo+hi) // 2
+            if can_ship(mid):
+                hi = mid
+            else:
+                lo=mid+1
+        return lo
+
 
 if __name__=='__main__':
-    weights = [2, 4, 6, 1, 3, 10]
-    days = 4
+    # weights = [1,2,3,4,5]
+    # days = 5
+    weights = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+    days = 5
     print(Solution().shipWithinDays(weights,days))
