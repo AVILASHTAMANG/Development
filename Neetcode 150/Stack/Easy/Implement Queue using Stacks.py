@@ -17,14 +17,26 @@
 class MyQueue:
 
     def __init__(self):
+        self.stack1=[] # for push
+        self.stack2=[] # for pop/peek(FIFO order)
 
     def push(self, x: int) -> None:
+        self.stack1.append(x)
 
     def pop(self) -> int:
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2.pop()
 
     def peek(self) -> int:
+        if not self.stack2:
+            while self.stack1:
+                self.stack2.append(self.stack1.pop())
+        return self.stack2[-1]
 
     def empty(self) -> bool:
+        return not self.stack1 and not self.stack2
 
 # Your MyQueue object will be instantiated and called as such:
 # obj = MyQueue()
@@ -32,3 +44,21 @@ class MyQueue:
 # param_2 = obj.pop()
 # param_3 = obj.peek()
 # param_4 = obj.empty()
+
+arguments = ["MyQueue","push","push","pop","push","peek"]
+params = [[],[1],[2],[],[3],[]]
+
+if __name__=='__main__':
+    obj=MyQueue()
+    result = [None]
+    for args,param in zip(arguments[1:],params[1:]):
+        if args == 'push':
+            result.append(obj.push(param))
+        elif args=='pop':
+            result.append(obj.pop())
+        elif args=='peek':
+            result.append(obj.peek())
+        elif args=='empty':
+            result.append(obj.empty())
+    print(result)
+
