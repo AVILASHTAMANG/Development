@@ -18,10 +18,43 @@
 
 class StockSpanner:
 
-    def __init__(self):
+    # def __init__(self):
+    #     self.prices=[]
+    #
+    # def next(self, price: int) -> int:
+    #     self.prices.append(price)
+    #     span =1
+    #     for i in range(len(self.prices)-2,-1,-1):
+    #         if self.prices[i]<=price:
+    #             span+=1
+    #         else:
+    #             break
+    #     return span
 
-    def next(self, price: int) -> int:
+    # Optimized using monotonic stack
+    def __init__(self):
+        self.prices=[]
+
+    def next(self, price: int)->int:
+        span=1
+        while self.prices and self.prices[-1][0]<=price:
+            span += self.prices.pop()[1]
+        self.prices.append((price,span))
+        return span
+
+
 
 # Your StockSpanner object will be instantiated and called as such:
 # obj = StockSpanner()
 # param_1 = obj.next(price)
+operations=["StockSpanner", "next", "next", "next", "next", "next", "next", "next"]
+arguments= [[], [100], [80], [60], [70], [60], [75], [85]]
+if __name__=='__main__':
+    res=[]
+    obj = StockSpanner()
+    for ops,args in zip(operations,arguments):
+        if ops=="next":
+            res.append(obj.next(args))
+        else:
+            continue
+    print(res)
