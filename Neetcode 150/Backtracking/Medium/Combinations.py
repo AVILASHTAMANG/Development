@@ -4,6 +4,19 @@
 
 class Solution:
     def combine(self, n: int, k: int) -> List[List[int]]:
+        if n==0:
+            return
+        res=[]
+        def backtrack(start,path):
+            if len(path)==k:
+                res.append(path[:])
+                return
+            for i in range(start,n+1):
+                path.append(i)
+                backtrack(i+1,path)
+                path.pop()
+        backtrack(1,[])
+        return res
 
 if __name__=='__main__':
     n = 3
