@@ -9,7 +9,8 @@ import re
 
 class Solution:
     def find_hackerrank(self,tweet):
-        regex_pattern = r'(h|H)(a|A)(c|C)(k|K)(e|E)(r|R)(r|R)(a|A)(n|N)(k|K)'
+        #regex_pattern = r'(h|H)(a|A)(c|C)(k|K)(e|E)(r|R)(r|R)(a|A)(n|N)(k|K)'
+        regex_pattern=r'hackerrank'
         count = 0
         if re.search(regex_pattern, tweet, re.IGNORECASE):
             return 1
